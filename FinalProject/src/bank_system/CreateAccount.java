@@ -127,6 +127,79 @@ public class CreateAccount {
 			setdate_Of_Birth(date_Of_Birth);
 			setoccupation(occupation);
 			setaccount_Type(account_Type);
+			
+			//@mahima mulani-508
+
+			//Write those data into Excel file
+			//Create a file object with file path of existing Excel file as parameter
+			File file = new File("C:\\Users\\HP\\Desktop\\MAD_3463_4\\Final Project\\Bank_System\\Client_Data.xlsx");
+			
+			//Create FileInputStream object to get the information of the file
+			FileInputStream fip = new FileInputStream(file);
+			
+			//Get the workbook instance for XLSX file
+			XSSFWorkbook workbook = new XSSFWorkbook(fip);
+			
+			//Ensure if file exists or not!
+			if(file.isFile() && file.exists())
+			{
+				System.out.println("Client_Data.xslx exists and opened.");
+			}
+			
+			//Open Sheet 0
+			XSSFSheet sheet = workbook.getSheetAt(0);
+			
+			//Get the last Row count
+			int rowCount = sheet.getLastRowNum();
+			
+			//create a row
+			XSSFRow row = sheet.createRow(++rowCount);
+			
+			//Set column to 0
+			int coulmnCount = 0;
+			
+			//Create Cell
+			XSSFCell cell;
+			
+			//Creation Helper for date formats
+			CreationHelper creationHelper = workbook.getCreationHelper();
+			
+			//Add Each values into cell
+			cell = row.createCell(coulmnCount);
+			cell.setCellValue((Integer) account_Number);
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue((String) first_Name);
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue((String) last_Name);
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue((String) address);
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue( date_Of_Birth);
+			
+			//Set Date of Birth in yyyy-mm-dd format
+			CellStyle style = workbook.createCellStyle();
+			style.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-mm-dd"));
+			cell.setCellStyle(style);
+			
+			//Continue to write other fields
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue((String) occupation);
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue((String) account_Type);
+			cell = row.createCell(++coulmnCount);
+			cell.setCellValue((Double) account_Balance);
+			
+			//Close input stream
+			fip.close();
+			
+			//Open FileOutputStream to write data
+			FileOutputStream fos = new FileOutputStream("C:\\\\Users\\\\HP\\\\Desktop\\\\MAD_3463_4\\\\Final Project\\\\Bank_System\\\\Client_Data.xlsx");
+			workbook.write(fos);
+			
+			//close output stream and workbook
+			fos.close();
+			workbook.close();
+			System.out.println("File Written Successfully");
 		}
 	
 		}
