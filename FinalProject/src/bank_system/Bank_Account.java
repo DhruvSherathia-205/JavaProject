@@ -1,7 +1,7 @@
 /**
  * 
  */
-package javaproject;
+package bank_system;
 
 
 
@@ -10,23 +10,9 @@ package javaproject;
 	/**
 	 * @param args
 	 */
-	//public static void main(String[] args) {
-		/*
-			System.out.println("Dhruv Sherathia 205");
-			System.out.println("Mahima Mulani 508");
-			System.out.println("Malav Patel 213"); 
-			System.out.println("Sukhdeep Shabla 729"); 
-			System.out.println("Swapnil Desai 010 ");  
-	}
 
-}*/
-
-
-	
-
-	import java.io.IOException;
-
-	import javax.swing.JOptionPane;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 	/**
 	 * @author Dhruv Sherathia 205
@@ -51,7 +37,13 @@ package javaproject;
 				userChoice = Integer.parseInt(JOptionPane.showInputDialog("Enter your Choice\n1.Create Account\n2.Perform Transactions\n3.quit"));
 				switch(userChoice)
 				{
-					
+					case 1: //create account
+							break;
+					case 2: //perform transactions
+							break;
+					case 3: //Quit
+							break;
+					default:
 				}
 			}while(userChoice!=3);
 			//Write Files when account creation
