@@ -107,6 +107,27 @@ public class CreateAccount {
 		//Create Account Method
 		public void create_Account() throws IOException
 		{
+			//@sukhdeep shabla-729 
 			//Create Account and Store files
+			Random R = new Random();
+			first_Name = JOptionPane.showInputDialog("Enter your First name:");
+			last_Name = JOptionPane.showInputDialog("Enter your Last name:");
+			address = JOptionPane.showInputDialog("Enter your address:");
+			date_Of_Birth = Date.valueOf(JOptionPane.showInputDialog("Enter date of birth in yyyy-mm-dd format:"));
+			occupation = JOptionPane.showInputDialog("Enter your occupation:");
+			account_Type = JOptionPane.showInputDialog("Select Account type:\n1. Savings\n2.Checking\n3.Money Market:");
+			account_Number = R.nextInt(Integer.MAX_VALUE);
+			account_Balance = 0;
+					
+			//Use of Set Methods
+			setaccount_Number(account_Number);
+			setfirst_Name(first_Name);
+			setlast_Name(last_Name);
+			setaddress(address);
+			setdate_Of_Birth(date_Of_Birth);
+			setoccupation(occupation);
+			setaccount_Type(account_Type);
 		}
-	}
+	
+		}
+	
