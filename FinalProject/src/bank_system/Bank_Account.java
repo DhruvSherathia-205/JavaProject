@@ -39,8 +39,12 @@ import javax.swing.JOptionPane;
 				{
 					//@ Swapnil Desai 010
 					case 1: //create account
+							CreateAccount ca = new CreateAccount();
+							ca.create_Account();
 							break;
 					case 2: //perform transactions
+							Transactions t = new Transactions();
+							t.transactions();
 							break;
 					case 3: //Quit
 							break;
