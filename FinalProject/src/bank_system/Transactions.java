@@ -303,7 +303,38 @@ public class Transactions
 									fos.close();
 									workbook.close();
 									break;
-									
+
+							case 4: //Edit birth date
+									//@Swapnil Desai 010
+									//@Malav Patel 213
+									//@Dhruv Sherathia 205
+									cell = sheet.getRow(row_Number).getCell(4);
+									java.util.Date old_date = cell.getDateCellValue();
+									DateFormat new_df = new SimpleDateFormat("yyyy/MM/dd");
+									String new_date = new_df.format(old_date);
+									java.sql.Date new_Date_Of_Birth = java.sql.Date.valueOf(new_date);
+									//Set Date of Birth in yyyy-mm-dd format
+									//Creation Helper for date formats
+									cell.setCellValue(new_Date_Of_Birth);
+									CreationHelper creationHelper = workbook.getCreationHelper();
+									CellStyle style = workbook.createCellStyle();
+									style.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-mm-dd"));
+									cell.setCellStyle(style);
+									//Save by writing data
+									workbook.write(fos);
+									fos.close();
+									workbook.close();
+									break;
+							case 5: //Edit Occupation
+									//@Dhruv Sherathia 205
+									String new_occupation = JOptionPane.showInputDialog("Enter the new occupation:");
+									cell = sheet.getRow(row_Number).getCell(5);
+									cell.setCellValue(new_occupation);
+									//Save by writing data
+									workbook.write(fos);
+									fos.close();
+									workbook.close();
+									break;		
 									
 							default:break;
 						}
