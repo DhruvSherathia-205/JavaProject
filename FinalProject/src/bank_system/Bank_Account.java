@@ -3,14 +3,6 @@
  */
 package bank_system;
 
-
-
-//public class JavaProject {
-
-	/**
-	 * @param args
-	 */
-
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
@@ -20,7 +12,6 @@ import javax.swing.JOptionPane;
 	 */
 	public class Bank_Account 
 	{
-
 		/**
 		 * @param args
 		 * @throws IOException 
@@ -50,10 +41,11 @@ import javax.swing.JOptionPane;
 							break;
 					default:
 				}
+				
 			}while(userChoice!=3);
 			//Write Files when account creation
 			//read files and locate information for transactions like account_number
-			//
+			
 		}
-
+		
 	}

@@ -33,17 +33,19 @@ public class Transactions
 	 * @throws IOException 
 	 */
 	@SuppressWarnings({ "resource" })
-	// @Sukhdeep (780)
-	// @Mahima (508)
+	
+	//@Sukhdeep Shabla-729
+	//@Mahima Mulani-508
 	
 	void transactions() throws IOException
 	{
-		// @Sukhdeep (780)
-		// @Mahima (508)
+		//@Sukhdeep Shabla-729
+		//@Mahima Mulani-508
 		//2.Perform Transactions
 		//Verify your account first
 		//Create File Instance
-
+		
+		//Note:- Change path according to your convenience and put given "Client_Data.xlsx" file in that path's folder. Lastly keep the path same in all class files!
 		File file = new File("C:\\Users\\HP\\Desktop\\MAD_3463_4\\Final Project\\Bank_System\\Client_Data.xlsx");
 			
 		//Obtaining File Input Stream
@@ -78,6 +80,7 @@ public class Transactions
 		cell = sheet.getRow(1).getCell(7);
 		double amount2 = (double) cell.getNumericCellValue();
 		System.out.println(amount2);*/
+		
 		//Take user's account number
 		int acc_Number = Integer.parseInt(JOptionPane.showInputDialog("Enter your account number:"));
 		
@@ -121,21 +124,22 @@ public class Transactions
 	
 	void operations(int account_Number, int row_Number, FileInputStream fin, XSSFWorkbook workbook, XSSFSheet sheet, XSSFCell cell) throws IOException
 	{
-		// @Sukhdeep (780)
-		// @Mahima (508)
+		//@Sukhdeep Shabla-729
+		//@Mahima Mulani-508
 		//Choose from the available lists
 		int userChoice;
 		
 		//double amount and amount2 for transactions
 		double amount, amount2;
 		//Open FileOutputStream to write data
+				//Note:- Change path according as per convenience and put given "Client_Data.xlsx" file in that path's folder. Lastly keep the path same in all class files!
 				FileOutputStream fos = new FileOutputStream("C:\\\\Users\\\\HP\\\\Desktop\\\\MAD_3463_4\\\\Final Project\\\\Bank_System\\\\Client_Data.xlsx");
 		
 		userChoice = Integer.parseInt(JOptionPane.showInputDialog("Enter your choice:\n1.Deposit\n2.Withdraw\n3.Display\n4.Transfer Money\n5.Edit Information"));
 		switch(userChoice)
 		{
-			case 1:	// @Sukhdeep (780)
-					// @Mahima (508)
+			case 1:	//@Sukhdeep Shabla-729
+					//@Mahima Mulani-508
 					//Deposit - money to deposit
 					amount = Double.parseDouble(JOptionPane.showInputDialog("Enter the amount to be deposit:"));
 					cell = sheet.getRow(row_Number).getCell(7);
@@ -149,6 +153,7 @@ public class Transactions
 					fos.close();
 					workbook.close();
 					break;
+					
 			case 2: //@ Swapnil Desai 010
 					//Withdraw
 					cell = sheet.getRow(row_Number).getCell(7);
@@ -177,6 +182,7 @@ public class Transactions
 					fos.close();
 					workbook.close();
 					break;
+					
 			case 3: //@ Swapnil Desai 010
 					//Display
 					int acc_no;
@@ -194,7 +200,8 @@ public class Transactions
 					cell = sheet.getRow(row_Number).getCell(3);
 					address = (String) cell.getStringCellValue();
 					cell = sheet.getRow(row_Number).getCell(4);
-					/*//Set Date of Birth in yyyy-mm-dd format
+					
+					/*Set Date of Birth in yyyy-mm-dd format
 					CellStyle style = workbook.createCellStyle();
 					style.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-mm-dd"));
 					cell.setCellStyle(style);*/
@@ -209,11 +216,13 @@ public class Transactions
 					acc_Amount = (double) cell.getNumericCellValue();
 					String printable = "---The Account Details---\n"+"Account Number:"+acc_no+"\nFirst Name:"+fname+"\nLast Name:"+lname+"\nAddress:"+address+"\nDate of Birth:"+date_Of_Birth+"\nOccupation:"+occupation+"\nAccount Type:"+account_Type+"\nAmount:"+acc_Amount;
 					JOptionPane.showMessageDialog(null, printable);
+					
 					//Save by writing data
 					workbook.write(fos);
 					fos.close();
 					workbook.close();
 					break;
+					
 			case 4: //@ Swapnil Desai 010
 					//Transfer Money
 					//Do while to check the accounts
@@ -264,6 +273,7 @@ public class Transactions
 					fos.close();
 					workbook.close();
 					break;
+					
 			case 5: //Edit Information				
 					//@Malav Patel 213
 					//@Dhruv Sherathia 205
@@ -283,6 +293,7 @@ public class Transactions
 									fos.close();
 									workbook.close();
 									break;
+									
 							case 2: //Edit Last Name
 									//@Malav Patel 213
 									String new_last = JOptionPane.showInputDialog("Enter the new last name:");
@@ -293,6 +304,7 @@ public class Transactions
 									fos.close();
 									workbook.close();
 									break;
+									
 							case 3: //Edit Address
 									//@Dhruv Sherathia 205
 									String new_address = JOptionPane.showInputDialog("Enter the new Address:");
@@ -325,6 +337,7 @@ public class Transactions
 									fos.close();
 									workbook.close();
 									break;
+									
 							case 5: //Edit Occupation
 									//@Dhruv Sherathia 205
 									String new_occupation = JOptionPane.showInputDialog("Enter the new occupation:");

@@ -2,6 +2,7 @@
  * 
  */
 package bank_system;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,7 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- * @author MALAV PATEL
+ * @author MALAV PATEL 213
  *
  */
 public class CreateAccount {
@@ -38,7 +39,7 @@ public class CreateAccount {
 		String account_Type;
 		double account_Balance;
 		//@Malav Patel 213
-		///getter and setter methods
+		//getter and setter methods
 		public int getaccount_Number() 
 		{
 			return account_Number;
@@ -115,7 +116,7 @@ public class CreateAccount {
 			address = JOptionPane.showInputDialog("Enter your address:");
 			date_Of_Birth = Date.valueOf(JOptionPane.showInputDialog("Enter date of birth in yyyy-mm-dd format:"));
 			occupation = JOptionPane.showInputDialog("Enter your occupation:");
-			account_Type = JOptionPane.showInputDialog("Select Account type:\n1. Savings\n2.Checking\n3.Money Market:");
+			account_Type = JOptionPane.showInputDialog("Select Account type:\n1. Savings\n2. Checking\n3. Money Market:");
 			account_Number = R.nextInt(Integer.MAX_VALUE);
 			account_Balance = 0;
 					
@@ -132,6 +133,7 @@ public class CreateAccount {
 
 			//Write those data into Excel file
 			//Create a file object with file path of existing Excel file as parameter
+			//Note:- Change path according to your convenience and put given "Client_Data.xlsx" file in that path's folder. Lastly keep the path same in all class files!
 			File file = new File("C:\\Users\\HP\\Desktop\\MAD_3463_4\\Final Project\\Bank_System\\Client_Data.xlsx");
 			
 			//Create FileInputStream object to get the information of the file
@@ -193,6 +195,7 @@ public class CreateAccount {
 			fip.close();
 			
 			//Open FileOutputStream to write data
+			//Note:- Change path according to your convenience and put given "Client_Data.xlsx" file in that path's folder. Lastly keep the path same in all class files!
 			FileOutputStream fos = new FileOutputStream("C:\\\\Users\\\\HP\\\\Desktop\\\\MAD_3463_4\\\\Final Project\\\\Bank_System\\\\Client_Data.xlsx");
 			workbook.write(fos);
 			
@@ -202,5 +205,5 @@ public class CreateAccount {
 			System.out.println("File Written Successfully");
 		}
 	
-		}
+}
 	
