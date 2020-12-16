@@ -264,7 +264,52 @@ public class Transactions
 					fos.close();
 					workbook.close();
 					break;
-			case 5: //Edit Information
+			case 5: //Edit Information				
+					//@Malav Patel 213
+					//@Dhruv Sherathia 205
+					//Variable to store which information to edit
+					int choice = Integer.parseInt(JOptionPane.showInputDialog("Which Information you'd like to edit!\n1.First Name\n2.Last Name\n3.Address\4.Date of Birth\n5.Occupation\n6.Stop"));
+					do
+					{
+						switch(choice)
+						{
+							case 1: //Edit First Name
+									//@Malav Patel 213
+									String new_name = JOptionPane.showInputDialog("Enter the new first name:");
+									cell = sheet.getRow(row_Number).getCell(1);
+									cell.setCellValue(new_name);
+									//Save by writing data
+									workbook.write(fos);
+									fos.close();
+									workbook.close();
+									break;
+							case 2: //Edit Last Name
+									//@Malav Patel 213
+									String new_last = JOptionPane.showInputDialog("Enter the new last name:");
+									cell = sheet.getRow(row_Number).getCell(2);
+									cell.setCellValue(new_last);
+									//Save by writing data
+									workbook.write(fos);
+									fos.close();
+									workbook.close();
+									break;
+							case 3: //Edit Address
+									//@Dhruv Sherathia 205
+									String new_address = JOptionPane.showInputDialog("Enter the new Address:");
+									cell = sheet.getRow(row_Number).getCell(3);
+									cell.setCellValue(new_address);
+									//Save by writing data
+									workbook.write(fos);
+									fos.close();
+									workbook.close();
+									break;
+									
+									
+							default:break;
+						}
+						
+					}while(choice!=6);
+					
 		}
 	}
 }
