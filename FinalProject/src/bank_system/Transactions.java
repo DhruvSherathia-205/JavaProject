@@ -64,23 +64,6 @@ public class Transactions
 		//Create Cell
 		XSSFCell cell;
 		
-		/*cell = sheet.getRow(1).getCell(1);
-		String first_Name = (String) cell.getStringCellValue();
-		System.out.println(first_Name);
-		cell = sheet.getRow(1).getCell(1);
-		first_Name = cell.getStringCellValue();
-		System.out.println(first_Name);
-		System.out.println(first_Name);
-		cell = sheet.getRow(1).getCell(2);
-		String last_Name = (String) cell.getStringCellValue();
-		System.out.println(last_Name);
-		cell = sheet.getRow(1).getCell(3);
-		String address = (String) cell.getStringCellValue();
-		System.out.println(address);
-		cell = sheet.getRow(1).getCell(7);
-		double amount2 = (double) cell.getNumericCellValue();
-		System.out.println(amount2);*/
-		
 		//Take user's account number
 		int acc_Number = Integer.parseInt(JOptionPane.showInputDialog("Enter your account number:"));
 		
@@ -260,16 +243,55 @@ public class Transactions
 					
 					//Transfer the amount to the account
 					amount = Double.parseDouble(JOptionPane.showInputDialog("Enter the amount to be Transfer:"));
-					//Go to the last row
-					i = i - 1;
-					cell = sheet.getRow(i).getCell(7);
-					amount2 = (double) cell.getNumericCellValue();
-					amount = amount + amount2;
-					cell.setCellValue( (Double) amount);
 					
+					//Subtract amount from user account
+					cell = sheet.getRow(account_Number).getCell(7);
+					amount2 = (double) cell.getNumericCellValue();
+					if(amount2==0)
+					{
+						JOptionPane.showMessageDialog(null, "Your Account is Empty. You can't transfer.");
+						//Save by writing data
+						workbook.write(fos);
+						fos.close();
+						workbook.close();
+						break;
+					}
+					else
+					{
+						amount = Double.parseDouble(JOptionPane.showInputDialog("Enter the amount to withdraw:"));
+						if(amount>amount2)
+						{
+							JOptionPane.showMessageDialog(null, "Please Enter valid amount of money! You can't transfer!");
+							//Save by writing data
+							workbook.write(fos);
+							fos.close();
+							workbook.close();
+							break;
+						}
+						else
+						{
+							amount2 = amount2-amount;
+							cell.setCellValue( (Double) amount2);
+						
+							//Save by writing data
+							workbook.write(fos);
+							JOptionPane.showMessageDialog(null, amount2+" has been transferred from account: "+account_Number);
+							//Go to the correct row as i was increased by 1 in loop
+							i = i - 1;
+							cell = sheet.getRow(i).getCell(7);
+							amount2 = (double) cell.getNumericCellValue();
+							amount = amount + amount2;
+							cell.setCellValue( (Double) amount);
+							
+							//Save by writing data
+							workbook.write(fos);
+							JOptionPane.showMessageDialog(null, amount+" has been transferred to account: "+acc_Number);
+							fos.close();
+							workbook.close();
+						}
+					}
 					//Save by writing data
 					workbook.write(fos);
-					JOptionPane.showMessageDialog(null, amount+" has been transferred to account: "+acc_Number);
 					fos.close();
 					workbook.close();
 					break;

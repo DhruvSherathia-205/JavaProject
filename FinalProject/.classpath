@@ -11,10 +11,5 @@
 	<classpathentry kind="lib" path="C:/Users/HP/Desktop/MAD_3463_4/Final Project/Bank_System/lib/poi-ooxml-3.17.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/Desktop/MAD_3463_4/Final Project/Bank_System/lib/poi-ooxml-schemas-3.17.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/Desktop/MAD_3463_4/Final Project/Bank_System/lib/xmlbeans-2.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dhruv/Downloads/xmlbeans-2.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dhruv/Downloads/poi-3.17.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dhruv/Downloads/poi-ooxml-3.17.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dhruv/Downloads/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dhruv/Downloads/poi-ooxml-schemas-3.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

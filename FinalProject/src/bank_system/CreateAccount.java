@@ -202,6 +202,7 @@ public class CreateAccount {
 			//close output stream and workbook
 			fos.close();
 			workbook.close();
+			JOptionPane.showMessageDialog(null, "Account created for "+first_Name+" with the account number: "+account_Number);
 			System.out.println("File Written Successfully");
 		}
 	
